@@ -1,0 +1,388 @@
+/* Paleta de cores personalizada */
+    :root {
+      --primary-color: #006400; /* Verde escuro */
+      --background-color: #000000;  /* Fundo preto */
+      --text-color: #ffffff;/* Texto branco */
+      --accent-color: #C19A6B;/* Dourado */
+    }
+
+/* Reset básico e box-sizing para controle de layout */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      overflow-x: hidden;
+    }
+
+/* Estilização geral do corpo */
+    body {
+     font-family: 'Arial', sans-serif;
+      /*font-family:'Ramadhan Mubarak',sans-serif;*/
+      background-color:#dddcd0 /*var(--background-color);*/
+      color: var(--text-color);
+      display: flex;
+    }
+
+    /* Menu lateral fixo com imagem de fundo */
+    aside {
+       /*font-family:'Ramadhan Mubarak';*/
+      font-family: 'Salamy', sans-serif; 
+      /*font-family: 'Windsong', cursives;  */                                        
+      width: 220px;
+      background: url('imagem/Menu1.jpg') center/cover no-repeat;
+      padding: 2rem 1rem;
+      position: fixed;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    
+
+    /* Logo pequeno no menu lateral */
+    aside img {
+  width: 200px;
+  border-radius: 50%;
+  margin-top: 0rem;
+}
+
+/* Menu de navegação dentro da barra lateral */
+    aside nav {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      width: 100%;
+      text-align: center;
+      margin-top: 0px
+    }
+
+/* Links dourados do menu */
+    aside nav a {
+      color: var(--accent-color);
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 2.1rem;
+    }
+
+/* Área principal do conteúdo com margem para o menu lateral */
+    main {
+      margin-left: 220px;
+      width: calc(100% - 220px);
+    }
+
+ /* Seção inicial com imagem de fundo esticada e logo central */
+    .hero {
+      background: url('imagem/fundo4.jpg') center/cover no-repeat;
+      height: 80vh;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+
+/* Camada escura sobre a imagem */
+.hero::after {
+    content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 150%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.2);
+    } 
+
+/* Logo central dentro da seção inicial */
+    .hero img {
+      position: relative;
+      z-index: 1;
+      width: 30%;
+    }
+
+
+    /* Caixa transparente para o item selecionado */
+.selecao .selected {
+    background-color: rgba(8, 26, 25, 0.5); /* Fundo transparente para o item ativo */
+    color: #C19A6B; /* Cor dourada para o texto */
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.6); /* Destaque com sombra */
+}
+
+/* Classe areia "sobre nos" com fundo de areia translúcido */
+.areia {
+  background-color:#dddcd0;
+  margin: 0px;
+  padding: 2rem;
+  /*border-radius: 10px;*/
+  /*box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); 
+  color: #333;*/
+}
+
+.areia h1{
+color: #003c1b;
+}
+
+.areia h2 {
+  color: #003c1b;
+  margin-bottom: 1.3rem;
+  font-size: 3rem;
+  text-align: center;
+  /*font-family: 'Salamy', sans-serif; */
+      font-family: 'Windsong', cursives;  
+}
+
+.areia p, .areia ul {
+  font-size: 1.2rem;
+  color: #6b4f3b;
+  text-align: center;
+} 
+
+.menu {
+  background-color:#dddcd0;
+  margin: rem;
+  padding: 2rem;
+  /*border-radius: 10px;*/
+  /*box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  color: #333;*/
+}
+
+.menu h4 {
+  font-size: 1.2rem;
+  text-align: center;
+  color: #6b4f3b;
+}
+
+.menu h2 {
+  color: #003c1b;
+  margin-bottom: 1rem;
+  text-align: center;
+ /*font-family: 'Salamy', sans-serif; */
+  font-family: 'Windsong', cursives;
+ font-size: 3rem;
+ text-decoration: none;
+}
+
+.menu h3{
+  color: #003c1b;
+  margin-bottom: 1rem;
+  text-align: center;
+ /*font-family: 'Salamy', sans-serif; */
+  font-family: 'Windsong', cursives; 
+ font-size: 3rem;
+}
+
+.menu p, .menu ul {
+  /*font-family: 'Salamy', sans-serif; */
+  font-family: 'Windsong', cursives;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  /*color: #003c1b;*/
+  text-align: center;
+} 
+
+
+/*galeria*/
+ .galeria-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 2rem;
+}
+
+.galeria-item {
+    position: center;
+    overflow: hidden;
+    border-radius: 5px;
+    height: 300px; /* NOVO: define altura fixa para as imagens */
+}
+
+.galeria-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+
+.galeria-item:hover img {
+    transform: scale(1.1);
+}
+
+.logo-centro-com-texto {
+    grid-column: 1/-1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    position: center;
+    text-align: center;
+}
+
+.logo-central {
+    max-width: 290px;
+    height: auto;
+}
+
+.texto-lateral {
+    font-family: 'Windsong', cursives; 
+    font-size: 5.5rem;
+    color: #6b4f3b;
+    white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+    .logo-centro-com-texto {
+        flex-direction: column;
+    }
+
+    .texto-lateral {
+        font-size: 1.1rem;
+    }
+}
+
+
+/*.logo-centro img {
+    max-width: 300px;
+    height: auto;
+}*/
+
+
+/* Servicos*/
+
+.events {
+  background-color:#C19A6B;
+  margin: rem;
+  padding: 2rem;
+  /*border-radius: 10px;*/
+  /*box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  color: #333;*/
+}
+
+.events h4 {
+  font-size: 1.2rem;
+  text-align: center;
+  color: #6b4f3b;
+}
+
+.events h2 {
+  color: #C19A6B;
+  margin-bottom: 1rem;
+  text-align: center;
+ /*font-family: 'Salamy', sans-serif; */
+  font-family: 'Windsong', cursives;
+ font-size: 3rem;
+ text-decoration: none;
+}
+
+.events h3{
+  color: #003c1b;
+  margin-bottom: 1rem;
+  text-align: center;
+ /*font-family: 'Salamy', sans-serif; */
+  font-family: 'Windsong', cursives; 
+ font-size: 3rem;
+}
+
+.events p, .events ul {
+  /*font-family: 'Salamy', sans-serif; */
+  font-family: 'Windsong', cursives;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  /*color: #003c1b;*/
+  text-align: center;
+} 
+
+/* Galeria Events*/
+
+.galeria-events {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    padding: 2rem;
+}
+
+.galeria-service {
+    position: relative;
+    border-radius: 10px;
+    height: 810px; /* NOVO: define altura fixa para as imagens */
+}
+
+.galeria-service img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+
+.galeria-service:hover img {
+    transform: scale(1.1);
+}
+
+
+/* Rodapé */
+    footer {
+      background-color: #111;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+    }
+
+    /* Botão flutuante do WhatsApp */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 20px;
+      right: 50px;
+      background-color: #25d366;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+      z-index: 1000;
+    }
+
+/* Imagem (logo) dentro do botão do WhatsApp */
+    .whatsapp-float img {
+      width: 250%;
+      height: 250%;
+      margin-right: 20px;
+      margin-bottom: 20px;
+    }
+
+/* Responsividade para telas menores */
+    @media (max-width: 768px) {
+      aside {
+        position: relative;
+        width: 100%;
+        height: auto;
+        flex-direction: row;
+        justify-content: space-between;
+      }
+
+      aside nav {
+        flex-direction: row;
+        justify-content: space-around;
+        margin-top: 5px;
+      }
+
+      main {
+        margin-left: 0;
+        width: 100%;
+      }
+
+      .hero {
+        height: 50vh;
+      }
+
+      
+
+    

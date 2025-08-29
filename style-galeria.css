@@ -1,0 +1,316 @@
+/* Paleta de cores personalizada */
+    :root {
+      --primary-color: #006400; /* Verde escuro */
+      --background-color: #000000;  /* Fundo preto */
+      --text-color: #ffffff;/* Texto branco */
+      --accent-color: #C19A6B;/* Dourado */
+    }
+
+/* Reset básico e box-sizing para controle de layout */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      overflow-x: hidden;
+    }
+
+/* Estilização geral do corpo */
+    body {
+     font-family: 'Arial', sans-serif;
+      /*font-family:'Ramadhan Mubarak',sans-serif;*/
+      background-color:#dddcd0 /*var(--background-color);*/
+      color: var(--text-color);
+      display: flex;
+    }
+
+    /* Menu lateral fixo com imagem de fundo */
+    aside {
+       font-family: 'Salamy', sans-serif; 
+      /*font-family: 'Windsong', cursives;  */                                 
+      width: 220px;
+      background: url('imagem/Menu1.jpg') center/cover no-repeat;
+      padding: 2rem 1rem;
+      position: fixed;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    
+
+    /* Logo pequeno no menu lateral */
+    aside img {
+  width: 200px;
+  border-radius: 50%;
+  margin-top: 0rem;
+}
+
+/* Menu de navegação dentro da barra lateral */
+    aside nav {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      width: 100%;
+      text-align: center;
+      margin-top: 0px
+    }
+
+/* Links dourados do menu */
+    aside nav a {
+      color: var(--accent-color);
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 2.1rem;
+    }
+
+    /* Caixa transparente para o item selecionado */
+.selecao .selected {
+    background-color: rgba(8, 26, 25, 0.5); /* Fundo transparente para o item ativo */
+    color: #C19A6B; /* Cor dourada para o texto */
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.6); /* Destaque com sombra */
+}
+
+
+/* Área principal do conteúdo com margem para o menu lateral */
+    main {
+      margin-left: 220px;
+      width: calc(100% - 220px);
+    }
+
+ /* Seção inicial com imagem de fundo esticada e logo central */
+    .hero {
+      background: url('imagem/Fundo3.jpg') center/cover no-repeat;
+      height: 80vh;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+
+/* Camada escura sobre a imagem */
+.hero::after {
+    content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 150%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+    } 
+
+/* Logo central dentro da seção inicial */
+    .hero img {
+      position: relative;
+      z-index: 1;
+      width: 30%;
+    }
+
+
+/* Classe areia "sobre nos" com fundo de areia translúcido */
+.areia {
+  background-color: rgba(221, 220, 208,0.6)
+  /*background-color:#dddcd0;*/
+  margin: 10px;
+  padding: 1rem;
+  border-radius: 0px;
+  /*box-shadow: 0 0 15px rgba(0, 0, 0, 0.6); 
+  /*color: #333;*/
+}
+
+.areia h1{
+/*font-family: 'Salamy', sans-serif; */
+  font-family: 'Windsong', cursives;
+font-size: 2.5rem;
+color: #6b4f3b;
+
+}
+
+.areia h2 {
+  color: #003c1b;
+  margin-bottom: rem;
+  font-size: 4rem;
+  text-align: center;
+  /*font-family: 'Salamy', sans-serif; */
+  font-family: 'Windsong', cursives;
+}
+
+.areia p, .areia ul {
+  font-size: 1.2rem;
+  color: #6b4f3b;
+  text-align: center;
+} 
+
+
+/*  Galeria de fotos */
+
+/* Estilo da galeria em grades */
+.grid-gallery {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 5 colunas fixas */
+    gap: 15px; /* Espaço entre imagens */
+    justify-items: center; /* Centraliza as imagens dentro de cada célula */
+    margin-top: 15px;
+    margin-bottom: 15px;
+
+}
+
+.gallery-item {
+    width: 350px;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.gallery-item:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.5);
+}
+
+/* Modal Visualização de imagens ao clicar */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    padding-top: 70px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    max-width: 80%;
+    max-height: 80%;
+    border-radius: 10px;
+}
+
+.close {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: #FFD700;
+}
+
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    margin-top: -22px;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    transition: 0.3s;
+    border-radius: 0 3px 3px 0;
+}
+
+.next {
+    right: 10px;
+    border-radius: 3px 0 0 3px;
+}
+
+.prev {
+    left: 10px;
+    border-radius: 3px 0 0 3px;
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+
+
+/* Rodapé */
+    footer {
+      background-color: #111;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      
+    }
+
+
+    /* Botão flutuante do WhatsApp */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 20px;
+      right: 50px;
+      background-color: #25d366;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+      z-index: 1000;
+    }
+
+/* Imagem (logo) dentro do botão do WhatsApp */
+    .whatsapp-float img {
+      width: 250%;
+      height: 250%;
+      margin-right: 20px;
+      margin-bottom: 20px;
+    }
+
+/* Responsividade para telas menores */
+    @media (max-width: 768px) {
+      aside {
+        position: relative;
+        width: 100%;
+        height: auto;
+        flex-direction: row;
+        justify-content: space-between;
+      }
+
+      aside nav {
+        flex-direction: row;
+        justify-content: space-around;
+        margin-top: 5px;
+      }
+
+      main {
+        margin-left: 0;
+        width: 100%;
+      }
+
+      .hero {
+        height: 50vh;
+      }
+
+    /* Responsividade para telas menores */
+  @media (max-width: 768px) {
+    .contato-container {
+      flex-direction: column;
+    }
+
+    .contato-endereco, .contato-mapa {
+      flex: 1 1 100%;
+    }
+
+    .contato-endereco {
+      margin-bottom: 20px;
+    }
+  }
